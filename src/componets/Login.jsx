@@ -1,5 +1,8 @@
 
  import {Link} from  "react-router-dom"
+
+
+ 
 export default function Login() {
   return (
     <section className="container">
@@ -10,12 +13,15 @@ export default function Login() {
         <input
           className="inp"
           type="email"
+          required
+
           placeholder="Enter Email"
           name="email"
         />
         <input
           className="inp"
           type="password"
+          required
           placeholder="Enter password "
           name="password"
         />

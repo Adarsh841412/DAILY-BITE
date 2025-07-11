@@ -56,3 +56,22 @@ width: 100%;
 text-align: center;
 
 }
+
+.success{
+  background-color: lightgreen;
+  color:green;
+  width: 100%;
+  padding:10px;
+  border-radius: 10px;
+  opacity: 1;
+}
+
+.invisibe-msg{
+
+    width: 100%;
+  padding:10px;
+  border-radius: 10px;
+ 
+  opacity: 0;
+
+}

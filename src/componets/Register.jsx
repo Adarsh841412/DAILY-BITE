@@ -12,6 +12,11 @@ export default function Register() {
     age:""
   })
 
+
+  let[message,setMessage]=useState({
+    type:"invisibe-msg",    //*  i set default value here 
+    text:"Dummy msg"
+  })
   function handleInput(event){
 
    // console.log(event.target.name);  //* it will give the name 
@@ -28,6 +33,33 @@ export default function Register() {
     event.preventDefault();
    console.log(userDetails);
 
+fetch("http://localhost:8000/register", {
+  method:"POST",
+  body:JSON.stringify(userDetails),
+  headers:{
+    "content-Type":"application/json"
+  }
+})
+
+.then((response)=>{
+  console.log(response);
+  return response.json();
+})
+.then((data)=>{
+  console.log(data)
+
+  setMessage({type:"success",text:data.message})
+
+  setTimeout(()=>{
+setMessage({type:"invisibe-msg",text:data.message})
+
+  },5000)
+})
+.catch((err)=>{
+  console.log(err)
+})
+
+
     setUserDetails({name:"",email:"",age:"",password:""});
   }
 
@@ -42,6 +74,7 @@ export default function Register() {
           type="text"
           placeholder="Enter Name"
           name="name"
+          required
           onChange={handleInput}
             value={userDetails.name}
         />
@@ -50,6 +83,7 @@ export default function Register() {
           type="email"
           placeholder="Enter Email"
           name="email"
+           required
           onChange={handleInput}
           value={userDetails.email}
         />
@@ -58,12 +92,17 @@ export default function Register() {
           type="password"
           placeholder="Enter password "
           name="password"
+          maxLength={8}
+           required
            onChange={handleInput}
              value={userDetails.password}
         />
         <input
           className="inp"
           type="number"
+          max={100}
+          min={10}
+           required
           placeholder="Enter age"
           name="age"
            onChange={handleInput}
@@ -71,10 +110,11 @@ export default function Register() {
         />
 
 
-<button className="btn" onClick={handleSubmit}>Join</button>
+<button className="btn" onSubmit={handleSubmit}>Join</button>
 
 <p>Already Registered ? <Link to="/login">Login </Link></p>
 
+<p className={message.type}>{message.text}</p>
       </form>
     </section>
   );
