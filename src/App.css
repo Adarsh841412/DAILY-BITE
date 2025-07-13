@@ -66,7 +66,7 @@ text-align: center;
   opacity: 1;
 }
 
-.invisibe-msg{
+.invisible-msg{
 
     width: 100%;
   padding:10px;
@@ -74,4 +74,14 @@ text-align: center;
  
   opacity: 0;
 
+}
+
+
+.error{
+  background-color: lightpink;
+  color:red;
+  width: 100%;
+  padding:10px;
+  border-radius: 10px;
+  opacity: 1;
 }

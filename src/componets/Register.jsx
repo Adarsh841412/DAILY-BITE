@@ -14,7 +14,7 @@ export default function Register() {
 
 
   let[message,setMessage]=useState({
-    type:"invisibe-msg",    //*  i set default value here 
+    type:"invisible-msg",    //*  i set default value here 
     text:"Dummy msg"
   })
   function handleInput(event){
@@ -51,7 +51,7 @@ fetch("http://localhost:8000/register", {
   setMessage({type:"success",text:data.message})
 
   setTimeout(()=>{
-setMessage({type:"invisibe-msg",text:data.message})
+setMessage({type:"invisible-msg",text:data.message})
 
   },5000)
 })
