@@ -5,7 +5,7 @@ import {Link, useNavigate} from  "react-router-dom"
  import { UserContext } from "../contexts/UserContext";
 export default function Login() {
 
-const loggedInData=useContext(UserContext);
+const loggedData=useContext(UserContext);
 
 
 const[userCredis,setUserCreds]=useState({
@@ -81,8 +81,11 @@ headers:{
   
   localStorage.setItem("nurtrify-user",JSON.stringify(data));
   
-  loggedInData.setLoggedUser(data);
-  
+  loggedData.setLoggedUser(data);
+// setTimeout(() => {
+//   console.log("Updated user data:", loggedInData.loggedUser); // should now reflect the update
+// }, 0);   //* i use setTimeout for this because asynchronusly chalta hai ye 
+
     navigate("/track")
 
 
