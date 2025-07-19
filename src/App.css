@@ -142,11 +142,17 @@ position: absolute;
 
 .food-img{
   width: 100%;
-  height: 200px;
-background-color: blue;
- 
+  height: 200px; /* Fixed height for all images */
+  overflow: hidden; /* Prevents image from overflowing */
+  border-radius: 10px;
 }
 
+
+.food-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fits without distortion */
+}
 .nurtrient{
 
 width:50%;

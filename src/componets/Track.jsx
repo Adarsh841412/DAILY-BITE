@@ -11,6 +11,11 @@ export function Track() {
   function searchFood(event) {
     const foodName = event.target.value;
     if (event.target.value.length !== 0) {
+
+      // let name=event.target.value;
+      // name=name.toLowerCase();
+      // name=name.replace(name[0],name[0].toUpperCase())
+      // console.log(name);
       fetch(`http://localhost:8000/foods/${foodName}`, {
         method: "GET",
         headers: {
